@@ -5,14 +5,19 @@
 </template>
 
 <script>
+import {mapState,mapMutations} from 'vuex'
 export default {
   data() {
     return {
       
     }
   },
-  created(){
-  }
+  mounted(){
+    this.setIndex(12)
+  },
+  methods: {
+    ...mapMutations(["setIndex"]),
+  },
 }
 </script>
 

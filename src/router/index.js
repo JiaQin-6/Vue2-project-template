@@ -31,6 +31,14 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
+// Remove afterEach hook if you are not using splash screen
+router.afterEach(() => {
+  // Remove initial loading
+  const appLoading = document.getElementById('loading-bg')
+  if (appLoading) {
+    appLoading.style.display = 'none'
+  }
+})
 // 检查服务端是否已经更新，如果更新刷新页面
 async function checkAppNewVersion() {
   const url = `/version.json?t=${Date.now()}`;
